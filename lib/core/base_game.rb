@@ -1,8 +1,10 @@
 module Core
   class BaseGame
+    attr_accessor :game_input
+
     def initialize(input, render)
       @input = input
-      @render = render
+      @game_render = render
       @entities = []
     end
 
@@ -14,15 +16,16 @@ module Core
       @entities = []
     end
 
-    def input
+    def process_input
+      @input.catch_input
     end
 
     def update
       @entities.each { |entity| entity.update }
     end
 
-    def render
-      @entities.each { |entity| entity.render }
+    def rendering
+      @entities.each { |entity| entity.rendering }
     end
   end
 end

@@ -38,8 +38,8 @@ module Core
           render_flag = true
           unprocessed_time -= @frame_time
 
-          input
-          update
+          @game.process_input
+          @game.update
 
           if frame_counter >= Time::SECOND
             p frames
@@ -49,7 +49,7 @@ module Core
         end
 
         if render_flag
-          render
+          @game.rendering
           frames += 1
         else
           sleep(@frame_time)
@@ -57,16 +57,6 @@ module Core
       end
     end
 
-    def input
-      @game.input
-    end
-
-    def update
-      @game.update
-    end
-
-    def render
-      @game.render
-    end
+    private :run
   end
 end

@@ -1,11 +1,10 @@
 module Game
-  include Core
-  
-  class DotsAndBoxes < BaseGame
+  class DotsAndBoxes < Core::BaseGame
+    include GameState
+
     def initialize(input, render)
       super(input, render)
-      @state = StartState.new
-      @state.game = self
+      @state = StartState.new self
     end
 
     def state=(state)

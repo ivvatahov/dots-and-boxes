@@ -1,11 +1,6 @@
 module RenderingEngine
 	class ConsoleRender
-    def initialize
-
-    end
-
-		def update
-
-		end
+    def initialize; end
+		def rendering; end
 	end
 end
