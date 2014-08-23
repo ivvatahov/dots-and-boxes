@@ -43,6 +43,7 @@ module Core
 
           if frame_counter >= Time::SECOND
             p frames
+            
             frames = 0
             frame_counter = 0
           end

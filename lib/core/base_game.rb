@@ -1,10 +1,10 @@
 module Core
   class BaseGame
-    attr_accessor :game_input
+    attr_accessor :input, :render 
 
     def initialize(input, render)
       @input = input
-      @game_render = render
+      @render = render
       @entities = []
     end
 
@@ -12,7 +12,11 @@ module Core
       @entities << entity
     end
 
-    def clear_entities
+    def remove_entity(entity)
+      @entities.delete(entity)
+    end
+
+    def remove_all_entities
       @entities = []
     end
 
