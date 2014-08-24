@@ -4,6 +4,10 @@ require "./core/entity"
 require "./core/time"
 require "./core/input"
 
+require "./game/entities/box"
+require "./game/entities/grid"
+require "./game/entities/line"
+
 require "./game/start_state"
 require "./game/ongoing_state"
 require "./game/end_state"
@@ -18,7 +22,7 @@ render = RenderingEngine::ConsoleRender.new
 input = Game::GameInput.new
 
 game = Game::DotsAndBoxes.new input, render
-frames_per_second = 100
+frames_per_second = 1
 
 engine = Core::GameEngine.new game, frames_per_second
 engine.start

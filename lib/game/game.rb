@@ -4,7 +4,7 @@ module Game
 
     def initialize(input, render)
       super(input, render)
-      @state = StartState.new self
+      @state = OngoingState.new self
     end
 
     def state=(state)

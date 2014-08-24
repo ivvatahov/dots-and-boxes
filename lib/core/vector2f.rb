@@ -11,7 +11,7 @@ module Core
     end
 
     def -(other)
-  		Vector2f.new @x - other.x, @y - other.y
+      Vector2f.new @x - other.x, @y - other.y
     end
   end
 end

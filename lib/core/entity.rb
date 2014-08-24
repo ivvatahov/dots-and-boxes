@@ -3,14 +3,15 @@ module Core
 
     def initialize(game)
       @game = game
+      @game.add_entity self
     end
 
     def update
-      puts "This method should be implemented"
+      
     end
 
-    def render
-      game.render.rendering self
+    def rendering
+      @game.render.rendering self
     end
   end
 end

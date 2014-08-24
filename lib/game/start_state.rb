@@ -3,11 +3,11 @@ module Game
 		class StartState
 			def initialize(game)
         @game = game
+        load_resources
 			end
 
       def game=(game)
         @game = game
-        load_resources
       end
 
       def load_resources
