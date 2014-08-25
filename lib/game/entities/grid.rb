@@ -11,39 +11,37 @@ module Game
 
       def add_boxes
         boxes = []
-        all_lines = Hash.new
-        lines = Hash.new
-        directions = { :north => [-1, 0],
-                       :south => [1, 0],
-                       :east => [0, 1],
-                       :west => [0, -1] }
 
         @cols.times do |x|
           @rows.times do |y|
-            box = Box.new @game, [x, y]
-
-            lines.clear
-            position = [x, y]
-
-            if all_lines.has_key? position
-              all_lines[position].each do |direction, line|
-                lines[turn_around direction] = line
-              end
-            end
-
-            directions.each do |key, value|
-              unless lines.has_key? key
-                lines[key] = Line.new @game
-                dir = directions[key]
-                all_lines[[dir[0] + x, dir[1] + y]] = [key ,lines[key]];
-              end
-            end
-
-            lines.each { |direction, line| box[directions] = line }
+            all_edges = Hash.new { |hash, key| hash[key] = [] }
+            box = Box.new @game, "add position"
+            add_edges box, all_edges, x, y
             boxes << box
           end
         end
+
         boxes
+      end
+
+      def add_edges(box, all_edges, *position)
+        edges = {}
+        x, y = position
+
+        if all_edges.has_key? position
+          all_edges[position].each { |a| edges[turn_around a[0]] = a[1] }
+        end
+
+        Box::DIRECTIONS.each do |dir, vector|
+          unless edges.has_key? dir
+            edges[dir] = Edge.new @game
+            all_edges[[vector[0] + x, vector[1] + y]] << [dir ,edges[dir]]
+          end
+        end
+
+        edges.each do |direction, edge|
+          box[direction] = edge
+        end
       end
 
       def turn_around(direction)
@@ -52,8 +50,8 @@ module Game
         :east if direction == :west
         :west if direction == :east
       end
-      
-      private :turn_around, :add_boxes
+
+      private :turn_around, :add_boxes, :add_edges
     end
   end
 end

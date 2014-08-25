@@ -1,17 +1,24 @@
 module Game
   module GameEntity
     class Box < Core::Entity
-      attr_reader :edges, :owner, :vectors
-      attr_accessor :position
+      DIRECTIONS = { :north => [-1, 0],
+                     :south => [1, 0],
+                     :east => [0, 1],
+                     :west => [0, -1]
+                     }.freeze
 
-      def initialize(game, vectors)
+      attr_reader :edges, :owner, :vectors
+      attr_accessor :position, :score_to_take
+
+      def initialize(game, vectors, score_to_take = 10)
         super(game)
-        @edges = Hash.new
+        @edges = {}
+        @score_to_take = score_to_take
       end
 
-      def []=(direction, line)
-        @edges[direction] = line
-        
+      def []=(direction, edge)
+        @edges[direction] = edge
+        edge.add_box self
       end
 
       def draw_edge(dir)
@@ -22,6 +29,7 @@ module Game
         raise BoxIncompleteError unless completed?
         raise BoxOwnerAlreadySetError if @owner
         @owner = owner
+        owner.add_score @score_to_take
       end
 
       class BoxIncompleteError < StandardError; end

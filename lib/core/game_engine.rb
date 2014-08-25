@@ -41,12 +41,13 @@ module Core
           @game.process_input
           @game.update
 
-          if frame_counter >= Time::SECOND
-            p frames
-            
-            frames = 0
-            frame_counter = 0
-          end
+
+        end
+
+        if frame_counter >= Time::SECOND
+          p frames
+          frames = 0
+          frame_counter = 0
         end
 
         if render_flag

@@ -6,9 +6,7 @@ module Core
       @game.add_entity self
     end
 
-    def update
-      
-    end
+    def update; end
 
     def rendering
       @game.render.rendering self

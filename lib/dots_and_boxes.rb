@@ -6,7 +6,7 @@ require "./core/input"
 
 require "./game/entities/box"
 require "./game/entities/grid"
-require "./game/entities/line"
+require "./game/entities/edge"
 
 require "./game/start_state"
 require "./game/ongoing_state"
