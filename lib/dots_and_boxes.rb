@@ -22,7 +22,7 @@ render = RenderingEngine::ConsoleRender.new
 input = Game::GameInput.new
 
 game = Game::DotsAndBoxes.new input, render
-frames_per_second = 1
+frames_per_second = 100
 
 engine = Core::GameEngine.new game, frames_per_second
 engine.start
