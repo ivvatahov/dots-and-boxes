@@ -40,8 +40,6 @@ module Core
 
           @game.process_input
           @game.update
-
-
         end
 
         if frame_counter >= Time::SECOND
