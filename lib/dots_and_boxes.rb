@@ -1,3 +1,5 @@
+require 'fox16'
+
 require "./core/game_engine"
 require "./core/base_game"
 require "./core/entity"

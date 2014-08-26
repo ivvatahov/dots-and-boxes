@@ -9,7 +9,7 @@ module Core
     def update; end
 
     def rendering
-      @game.render.rendering self
+      @game.render.draw self
     end
   end
 end
