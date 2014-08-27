@@ -35,7 +35,6 @@ module RenderingEngine
       @canvas.connect(SEL_CONFIGURE) { |sender, sel, evt|
         @back_buffer.create unless @back_buffer.created?
         @back_buffer.resize(sender.width, sender.height)
-        @ball.setWorldSize(sender.width, sender.height)
       }
 
       # Handle mouse click

@@ -15,7 +15,7 @@ module Game
         @cols.times do |x|
           @rows.times do |y|
             all_edges = Hash.new { |hash, key| hash[key] = [] }
-            box = Box.new @game, "add position"
+            box = Box.new @game, box_vectors(x, y)
             add_edges box, all_edges, x, y
             boxes << box
           end
@@ -24,8 +24,8 @@ module Game
         boxes
       end
 
-      def add_box_vectors(x, y)
-
+      def box_vectors(x, y)
+        [ Core::Vector2f.new(x, y), Core::Vector2f.new(x, y + 1), Core::Vector2f.new(x + 1, y + 1), Core::Vector2f.new(x + 1, y) ]
       end
 
       def add_edges(box, all_edges, *position)

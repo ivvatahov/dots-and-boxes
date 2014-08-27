@@ -11,7 +11,7 @@ module RenderingEngine
         dc = @window.device_context
         dc.setForeground("red")
         dc.lineWidth = 5
-        dc.drawLine(120, 45, 7, 8)
+        dc.drawLine(vectors[0].x*100, vectors[0].y*100, vectors[1].x*100, vectors[1].y*100)
         dc.end
       end
     end
