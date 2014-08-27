@@ -20,4 +20,5 @@ require "./rendering/console_render"
 require "./rendering/gui_render"
 require "./rendering/window"
 
- window = RenderingEngine::GUIWindow.new_window
+window = RenderingEngine::GUIWindow.new_window
+

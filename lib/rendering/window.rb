@@ -54,6 +54,10 @@ module RenderingEngine
 
     def draw_frame
       FXDCWindow.new(@canvas) { |dc| dc.drawImage(@back_buffer, 0, 0) }
+      FXDCWindow.new(@back_buffer) do |dc| 
+        dc.setForeground(FXRGB(0, 0, 0)) 
+        dc.fillRectangle(0, 0, @canvas.width, @canvas.height)
+      end
     end
 
     def create

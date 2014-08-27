@@ -22,7 +22,7 @@ module Core
     end
 
     def process_input
-      @input.catch_input
+      @input.process_input
     end
 
     def update
