@@ -12,7 +12,7 @@ module Game
 
       def load_resources
         @game.remove_all_entities
-        @game.add_entity GameEntity::Grid.new(@game, 4, 4, "")
+        @game.add_entity GameEntity::Grid.new(@game, 4, 4)
       end
     end
   end

@@ -1,8 +1,8 @@
 module RenderingEngine
-	class ConsoleRender
+  class ConsoleRender
     def initialize; end
-		def rendering(entity)
+    def rendering(entity)
 
-		end
-	end
+    end
+  end
 end

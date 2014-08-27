@@ -9,5 +9,10 @@ module Game
       @state = state
       @state.game = self
     end
+
+    def rendering
+      super
+      render.draw_frame
+    end
   end
 end

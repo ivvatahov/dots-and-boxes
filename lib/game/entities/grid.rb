@@ -3,7 +3,7 @@ module Game
     class Grid < Core::Entity
       attr_reader :rows, :cols, :vectors
 
-      def initialize(game, rows, cols, vectors)
+      def initialize(game, rows, cols)
         super(game)
         @rows, @cols = rows, cols
         @boxes = add_boxes
@@ -22,6 +22,10 @@ module Game
         end
 
         boxes
+      end
+
+      def add_box_vectors(x, y)
+
       end
 
       def add_edges(box, all_edges, *position)

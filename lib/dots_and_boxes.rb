@@ -13,18 +13,10 @@ require "./game/entities/edge"
 require "./game/start_state"
 require "./game/ongoing_state"
 require "./game/end_state"
-require "./game/game_input"
 require "./game/game"
 
 require "./rendering/console_render"
 require "./rendering/gui_render"
+require "./rendering/window"
 
-
-render = RenderingEngine::ConsoleRender.new
-input = Game::GameInput.new
-
-game = Game::DotsAndBoxes.new input, render
-frames_per_second = 100
-
-engine = Core::GameEngine.new game, frames_per_second
-engine.start
+window = RenderingEngine::GUIWindow.new_window

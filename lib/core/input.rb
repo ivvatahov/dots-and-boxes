@@ -1,15 +1,20 @@
 module Core
   class Input
-    def initialize
+    def initialize(device)
+      @device = device
       @input_vector = []
     end
 
-    def add_input(input_element)
-      @input_vector << input_element
+    def add_input
+      @input_vector = device.catch_input
     end
 
-    def catch_input
-      puts "This method should be initialized"
+    def catch_input 
+      @input_vector
+    end
+
+    def clear_input
+      @input_vector = []
     end
   end
 end
