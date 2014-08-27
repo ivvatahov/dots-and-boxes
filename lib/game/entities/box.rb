@@ -26,13 +26,17 @@ module Game
       def edge_vectors(direction)
         case
         when direction == :north
-          [ Core::Vector2f.new(@vectors[0].x, @vectors[0].y), Core::Vector2f.new(@vectors[1].x, @vectors[1].y) ]
+          [ Core::Vector2f.new(@vectors[0].x, @vectors[0].y),
+            Core::Vector2f.new(@vectors[1].x, @vectors[1].y) ]
         when direction == :east
-          [ Core::Vector2f.new(@vectors[1].x, @vectors[1].y), Core::Vector2f.new(@vectors[2].x, @vectors[2].y) ] 
+          [ Core::Vector2f.new(@vectors[1].x, @vectors[1].y),
+            Core::Vector2f.new(@vectors[2].x, @vectors[2].y) ]
         when direction == :south
-          [ Core::Vector2f.new(@vectors[2].x, @vectors[2].y), Core::Vector2f.new(@vectors[3].x, @vectors[3].y) ]
+          [ Core::Vector2f.new(@vectors[2].x, @vectors[2].y),
+            Core::Vector2f.new(@vectors[3].x, @vectors[3].y) ]
         when direction == :west
-          [ Core::Vector2f.new(@vectors[3].x, @vectors[3].y), Core::Vector2f.new(@vectors[0].x, @vectors[0].y) ]
+          [ Core::Vector2f.new(@vectors[3].x, @vectors[3].y),
+            Core::Vector2f.new(@vectors[0].x, @vectors[0].y) ]
         end
       end
 

@@ -25,7 +25,10 @@ module Game
       end
 
       def box_vectors(x, y)
-        [ Core::Vector2f.new(x, y), Core::Vector2f.new(x, y + 1), Core::Vector2f.new(x + 1, y + 1), Core::Vector2f.new(x + 1, y) ]
+        [ Core::Vector2f.new(x, y),
+          Core::Vector2f.new(x, y + 1),
+          Core::Vector2f.new(x + 1, y + 1),
+          Core::Vector2f.new(x + 1, y) ]
       end
 
       def add_edges(box, all_edges, *position)
