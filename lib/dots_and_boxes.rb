@@ -20,5 +20,7 @@ require "./rendering/console_render"
 require "./rendering/gui_render"
 require "./rendering/window"
 
-window = RenderingEngine::GUIWindow.new_window
+ window = RenderingEngine::GUIWindow.new_window
 
+# TODO: stop the game when window is closed
+  

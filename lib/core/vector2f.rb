@@ -15,7 +15,7 @@ module Core
     end
 
     def *(other)
-      @x*other.x + @y + other.y
+      @x*other.x + @y*other.y
     end
   end
 end
