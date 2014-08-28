@@ -1,5 +1,3 @@
-require "./vector2f"
-
 module Core
   module GameMath
     def dot_in_rectangle?(dot, a, b, d)

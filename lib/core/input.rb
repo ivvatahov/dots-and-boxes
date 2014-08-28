@@ -1,18 +1,22 @@
 module Core
   class Input
-    attr_reader :input_vector
+    attr_reader :input_map
 
     def initialize(device)
       @device = device
-      @input_vector = []
+      @input_map = {}
     end
 
     def process_input
-      @input_vector = @device.catch_input
+      @input_map = @device.catch_input
     end
 
     def clear_input
-      @input_vector = []
+      @input_map = {}
+    end
+
+    def empty?(object)
+      @input_map[object].empty?
     end
   end
 end

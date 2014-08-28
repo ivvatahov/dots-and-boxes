@@ -1,21 +1,35 @@
 module Core
-  class Vector2f
-    attr_accessor :x, :y
+  module GameMath
+    class Vector2f
+      attr_accessor :x, :y
 
-    def initialize(x, y)
-      @x, @y = x, y
-    end
+      def initialize(x, y)
+        @x, @y = x, y
+      end
 
-    def length
-      Math.sqrt(@x * @x + @y * @y)
-    end
+      def length
+        Math.sqrt(@x * @x + @y * @y)
+      end
 
-    def -(other)
-      Vector2f.new @x - other.x, @y - other.y
-    end
+      def +(other)
+        Vector2f.new @x + other.x, @y + other.y
+      end
 
-    def *(other)
-      @x*other.x + @y*other.y
+      def -(other)
+        Vector2f.new @x - other.x, @y - other.y
+      end
+
+      def *(other)
+        if other.is_a? Numeric
+          Vector2f.new @x * other, @y * other
+        elsif other.is_a? Vector2f
+          @x*other.x + @y*other.y
+        end
+      end
+
+      def /(other)
+        Vector2f.new @x / other, @y / other if other.is_a? Numeric
+      end
     end
   end
 end

@@ -5,11 +5,14 @@ require "./core/base_game"
 require "./core/entity"
 require "./core/time"
 require "./core/input"
-require "./core/vector2f.rb"
+require "./core/vector2f"
+require "./core/math_functions"
 
 require "./game/entities/box"
 require "./game/entities/grid"
 require "./game/entities/edge"
+require "./game/entities/player"
+require "./game/entities/players"
 
 require "./game/start_state"
 require "./game/ongoing_state"
@@ -20,7 +23,7 @@ require "./rendering/console_render"
 require "./rendering/gui_render"
 require "./rendering/window"
 
+Thread.abort_on_exception=true
+
  window = RenderingEngine::GUIWindow.new_window
 
-# TODO: stop the game when window is closed
-  

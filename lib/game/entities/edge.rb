@@ -1,6 +1,8 @@
 module Game
   module GameEntity
     class Edge < Core::Entity
+      include Core::GameMath
+
       attr_reader :boxes
       attr_accessor :vectors, :colour, :line_width
 
@@ -23,17 +25,18 @@ module Game
 
       def draw(player)
         @drawn = true
-        @boxes.each { |box| box[0].owner = player if box[0].complete? }
+        @boxes.each do |box|
+          if box.completed?
+            player.succeed = 1
+            box.owner = player
+          else
+            player.succeed = -1 if player.succeed != 1
+          end
+        end
       end
 
       def update
-        mouse_click = @game.input.input_vector
-        check?(mouse_click)
-      end
-
-      def check?(mouse_click)
-        v = Core::Vector2f.new mouse_click[0], mouse_click[1]
-        
+        @colour = "red" if drawn?
       end
     end
   end

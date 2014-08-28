@@ -6,12 +6,18 @@ module Game
         @players = []
         @players_turn = 0
         number_of_players.times do |i|
-          @players << Player.new(game, "player" + i.to_s)
+          @players << Player.new(@game, "p" + i.to_s)
         end
       end
 
       def update
-        @players[i].make_turn
+        player = @players[@players_turn]
+        player.make_turn
+        
+        if player.succeed == -1
+          player.succeed = 0
+          @players_turn = (@players_turn + 1) % @players.size
+        end
       end
     end
   end

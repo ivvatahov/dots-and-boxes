@@ -1,6 +1,8 @@
 module Game
   module GameEntity
     class Grid < Core::Entity
+      include Core::GameMath
+      
       attr_reader :rows, :cols, :vectors
 
       def initialize(game, rows, cols)
@@ -11,11 +13,11 @@ module Game
 
       def add_boxes
         boxes = []
+        all_edges = Hash.new { |hash, key| hash[key] = [] }
 
         @cols.times do |x|
           @rows.times do |y|
-            all_edges = Hash.new { |hash, key| hash[key] = [] }
-            box = Box.new @game, box_vectors(x, y)
+            box = Box.new @game, box_vectors(x + 1, y + 1)
             add_edges box, all_edges, x, y
             boxes << box
           end
@@ -25,10 +27,10 @@ module Game
       end
 
       def box_vectors(x, y)
-        [ Core::Vector2f.new(x, y),
-          Core::Vector2f.new(x, y + 1),
-          Core::Vector2f.new(x + 1, y + 1),
-          Core::Vector2f.new(x + 1, y) ]
+        [ Vector2f.new(x, y),
+          Vector2f.new(x, y + 1),
+          Vector2f.new(x + 1, y + 1),
+          Vector2f.new(x + 1, y) ]
       end
 
       def add_edges(box, all_edges, *position)
@@ -41,8 +43,9 @@ module Game
 
         Box::DIRECTIONS.each do |dir, vector|
           unless edges.has_key? dir
-            edges[dir] = Edge.new @game
-            all_edges[[vector[0] + x, vector[1] + y]] << [dir ,edges[dir]]
+            edge = Edge.new @game
+            edges[dir] = edge
+            all_edges[[vector[0] + x, vector[1] + y]] << [dir ,edge]
           end
         end
 
@@ -52,10 +55,10 @@ module Game
       end
 
       def turn_around(direction)
-        :north if direction == :south
-        :south if direction == :north
-        :east if direction == :west
-        :west if direction == :east
+       return :north if direction == :south
+       return :south if direction == :north
+       return :east if direction == :west
+       return :west if direction == :east
       end
 
       private :turn_around, :add_boxes, :add_edges
