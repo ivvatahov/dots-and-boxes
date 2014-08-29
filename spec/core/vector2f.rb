@@ -1,4 +1,3 @@
-
 describe "Vector2f" do
   let(:vector) { make_vector 3, 5 }
   it "can be created with x and y coordinates" do
@@ -6,11 +5,6 @@ describe "Vector2f" do
   end
 
   it "exposes its coordinates via getters" do
-    vector.x
-    vector.y
-  end
-
-  it "has the same coordinates after initialization" do
     vector.x = 3
     vector.y = 5
   end
