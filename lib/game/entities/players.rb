@@ -2,7 +2,7 @@ module Game
   module GameEntity
     class Players < Core::Entity
       def initialize(game, number_of_players)
-        super(game)
+        super game, 'players'
         @players = []
         @players_turn = 0
         number_of_players.times do |i|

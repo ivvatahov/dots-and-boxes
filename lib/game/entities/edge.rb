@@ -7,7 +7,7 @@ module Game
       attr_accessor :vectors, :colour, :line_width
 
       def initialize(game, vectors = [], line_width = 5)
-        super(game)
+        super game, 'edge'
         @drawn = false
         @selected = false
         @boxes = []

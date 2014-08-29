@@ -10,7 +10,7 @@ describe "Vector2f" do
   end
 
   it "can return its own length" do
-    expect(vector.length).to be 5.830951894845301 
+    expect(vector.length == 5.830951894845301).to be true 
   end
 
   context "operations with vectors" do
@@ -36,7 +36,7 @@ describe "Vector2f" do
     it "maintains substraction with another vector" do
       other = make_vector 54, 5
       result = vector - other
-      expect(result.x).to be -51
+      expect(result.x).to be (-51)
       expect(result.y).to be 0
     end
 
@@ -48,7 +48,7 @@ describe "Vector2f" do
     end
 
     it "returns new vector after substraction" do
-      other = make_vector -5, 6
+      other = make_vector (-5), 6
       result = vector - other
       expect(result.equal? vector).to be false
       expect(result.equal? other).to be false

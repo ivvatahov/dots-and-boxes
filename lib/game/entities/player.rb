@@ -7,7 +7,7 @@ module Game
       attr_accessor :colour, :name, :succeed
 
       def initialize(game, name)
-        super(game)
+        super game, 'player'
         @name = name
         @score = 0;
         @succeed = 0

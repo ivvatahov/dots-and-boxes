@@ -1,7 +1,7 @@
 module Game
   module GameState
     class EndState
-      def initialize(game)
+      def initialize game
         @game = game
       end
 
@@ -12,8 +12,7 @@ module Game
 
       def load_resources
         @game.clear_entities
-        @game.add_entity GameOver.new(@game)
-        @game.add_entity NewGameQuestion.new(@game)
+        @game.add_entity GameOver.new @game 
       end
     end
   end

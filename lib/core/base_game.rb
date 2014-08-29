@@ -1,7 +1,8 @@
 module Core
   class BaseGame
     attr_reader :entities, :input, :render
- 
+    attr_reader :game_over
+
     def initialize(input, render)
       @input = input
       @render = render
@@ -22,6 +23,10 @@ module Core
 
     def process_input
       @input.process_input
+    end
+
+    def select(type)
+      @entities.select { |entity| entity.type == type }
     end
 
     def update

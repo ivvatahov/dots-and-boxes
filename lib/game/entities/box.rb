@@ -13,7 +13,7 @@ module Game
       attr_accessor :position, :score_to_take, :text_colour
 
       def initialize(game, vectors = [], score_to_take = 10)
-        super(game)
+        super game, 'box'
         @edges = {}
         @score_to_take = score_to_take
         @vectors = vectors
@@ -28,17 +28,25 @@ module Game
       def edge_vectors(direction)
         case
         when direction == :north
-          [ Vector2f.new(@vectors[0].x, @vectors[0].y),
-            Vector2f.new(@vectors[1].x, @vectors[1].y) ]
+          [ 
+            Vector2f.new(@vectors[0].x, @vectors[0].y),
+            Vector2f.new(@vectors[1].x, @vectors[1].y) 
+          ]
         when direction == :east
-          [ Vector2f.new(@vectors[1].x, @vectors[1].y),
-            Vector2f.new(@vectors[2].x, @vectors[2].y) ]
+          [ 
+            Vector2f.new(@vectors[1].x, @vectors[1].y),
+            Vector2f.new(@vectors[2].x, @vectors[2].y) 
+          ]
         when direction == :south
-          [ Vector2f.new(@vectors[2].x, @vectors[2].y),
-            Vector2f.new(@vectors[3].x, @vectors[3].y) ]
+          [ 
+            Vector2f.new(@vectors[2].x, @vectors[2].y),
+            Vector2f.new(@vectors[3].x, @vectors[3].y) 
+          ]
         when direction == :west
-          [ Vector2f.new(@vectors[3].x, @vectors[3].y),
-            Vector2f.new(@vectors[0].x, @vectors[0].y) ]
+          [ 
+            Vector2f.new(@vectors[3].x, @vectors[3].y),
+            Vector2f.new(@vectors[0].x, @vectors[0].y) 
+          ]
         end
       end
 

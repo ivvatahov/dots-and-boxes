@@ -2,11 +2,11 @@ module Game
   module GameEntity
     class Grid < Core::Entity
       include Core::GameMath
-      
+
       attr_reader :rows, :cols, :vectors
 
       def initialize(game, rows, cols)
-        super(game)
+        super game, 'grid'
         @rows, @cols = rows, cols
         @boxes = add_boxes
       end
@@ -26,10 +26,12 @@ module Game
       end
 
       def box_vectors(x, y)
-        [ Vector2f.new(x, y),
+        [
+          Vector2f.new(x, y),
           Vector2f.new(x, y + 1),
           Vector2f.new(x + 1, y + 1),
-          Vector2f.new(x + 1, y) ]
+          Vector2f.new(x + 1, y)
+        ]
       end
 
       def add_edges(box, all_edges, *position)
@@ -54,10 +56,16 @@ module Game
       end
 
       def turn_around(direction)
-       return :north if direction == :south
-       return :south if direction == :north
-       return :east if direction == :west
-       return :west if direction == :east
+        return :north if direction == :south
+        return :south if direction == :north
+        return :east if direction == :west
+        return :west if direction == :east
+      end
+
+      def update
+        if @boxes.all? { |box| box.completed? }
+          @game.game_over = true
+        end
       end
 
       private :turn_around, :add_boxes, :add_edges
