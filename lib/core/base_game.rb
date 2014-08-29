@@ -1,8 +1,7 @@
 module Core
   class BaseGame
-    attr_reader :entities
-    attr_accessor :input, :render
-
+    attr_reader :entities, :input, :render
+ 
     def initialize(input, render)
       @input = input
       @render = render

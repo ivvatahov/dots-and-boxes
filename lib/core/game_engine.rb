@@ -29,7 +29,7 @@ module Core
         render_flag = false
 
         start_time = @time.get_time
-        passed_time = start_time  -last_time
+        passed_time = start_time - last_time
         last_time = start_time
 
         unprocessed_time += passed_time
