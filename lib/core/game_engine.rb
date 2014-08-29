@@ -1,5 +1,6 @@
 module Core
   class GameEngine
+    attr_reader :frames
     def initialize(game, frames_per_second)
       @running = false
       @game = game

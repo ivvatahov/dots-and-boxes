@@ -23,12 +23,8 @@ module Core
         if other.is_a? Numeric
           Vector2f.new @x * other, @y * other
         elsif other.is_a? Vector2f
-          @x*other.x + @y*other.y
+          @x * other.x + @y * other.y
         end
-      end
-
-      def /(other)
-        Vector2f.new @x / other, @y / other if other.is_a? Numeric
       end
     end
   end

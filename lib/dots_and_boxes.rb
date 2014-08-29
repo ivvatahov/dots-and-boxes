@@ -23,7 +23,6 @@ require "./rendering/console_render"
 require "./rendering/gui_render"
 require "./rendering/window"
 
-Thread.abort_on_exception=true
+Thread.abort_on_exception = true
 
- window = RenderingEngine::GUIWindow.new_window
-
+window = RenderingEngine::GUIWindow.new_game_window

@@ -22,7 +22,6 @@ module Game
             boxes << box
           end
         end
-
         boxes
       end
 
